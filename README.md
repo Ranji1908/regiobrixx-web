@@ -72,11 +72,10 @@ Die Seite läuft auf **GitHub Pages**. Jeder Push auf `main` stößt den Workflo
 
 1. **Repo-Settings → Pages → Source** auf `GitHub Actions` stellen.
    Ohne diesen Schritt läuft der Workflow zwar, veröffentlicht aber nichts.
-2. **`CNAME` im Repo-Wurzelverzeichnis** anlegen, Inhalt ist exakt die Domain
-   (eine Zeile, ohne `https://`, ohne Slash). Beispiel: `regiobrixx.de`
-   Wichtig: Bei Actions-basiertem Deploy reicht das Eintragen der Domain im
-   Pages-Formular **nicht** — ohne die Datei im Repo ist die Domain nach dem
-   nächsten Deploy wieder weg.
+2. **`CNAME`** liegt im Wurzelverzeichnis und enthält `regiobrixx.de`.
+   Diese Datei muss bleiben: Bei Actions-basiertem Deploy reicht das Eintragen
+   der Domain im Pages-Formular **nicht** — ohne die Datei im Repo ist die
+   Domain nach dem nächsten Deploy wieder weg.
 3. **DNS beim Domain-Anbieter** auf GitHub zeigen lassen. Die konkreten Werte
    zeigt GitHub selbst unter Settings → Pages an, sobald die Domain einge-
    tragen ist. Grundmuster:
@@ -95,7 +94,7 @@ braucht rund eine Minute.
 
 - **Kontaktformular:** öffnet aktuell das Mail-Programm (`mailto:`) mit vorausgefüllter Nachricht.
   Für serverseitigen Versand das `submit`-Handling in `main.js` gegen einen Form-Endpoint tauschen.
-- **E-Mail-Adresse:** Überall steht `info@hermibricks.de`. Sobald das Postfach
+- **E-Mail-Adresse:** Überall steht `info@regiobrixx.de`. Sobald das Postfach
   `info@regiobrixx.de` existiert, in `index.html`, `impressum.html`,
   `datenschutz.html` und `main.js` tauschen.
 - **Rechtstexte:** Impressum und Datenschutzerklärung sind Entwürfe nach dem
