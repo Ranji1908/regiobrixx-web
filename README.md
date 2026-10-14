@@ -7,7 +7,10 @@ für touristische Destinationen). Inhalte stammen aus dem Konzeptdokument „Reg
 
 | Datei | Inhalt |
 |---|---|
-| `index.html` | Komplette Seite (Hero, Modelle, Referenz, Ablauf, Pakete, Vorteile, Vertrieb, Über uns, Kontakt) |
+| `index.html` | Startseite (Hero, Modelle, Referenz, Ablauf, Pakete, Vorteile, Vertrieb, Über uns, Kontakt) |
+| `impressum.html` | Anbieterkennzeichnung nach § 5 DDG |
+| `datenschutz.html` | Datenschutzerklärung |
+| `fonts.css`, `fonts/` | Lokal ausgelieferte Schriften, erzeugt aus Google Fonts |
 | `styles.css` | Design-Tokens, Layout, Komponenten, Responsive- und Print-Regeln |
 | `main.js` | Mobile-Navigation, Parallax, Scroll-Reveal, Kontaktformular |
 | `images/` | Konzeptbilder der Modelle und Fotos des Altmühltal-Sets |
@@ -15,8 +18,23 @@ für touristische Destinationen). Inhalte stammen aus dem Konzeptdokument „Reg
 
 ## Lokal ansehen
 
-Einfach `index.html` im Browser öffnen — kein Build, keine Abhängigkeiten.
-Schriften (Instrument Serif, Inter) kommen von Google Fonts; ohne Internet greifen System-Fallbacks.
+Einfach `index.html` im Browser öffnen — kein Build, keine Abhängigkeiten,
+keine Internetverbindung nötig. Die Seite lädt nichts von fremden Servern nach.
+
+## Schriften
+
+Instrument Serif und Inter liegen als woff2 unter `fonts/` und werden über
+`fonts.css` eingebunden. Bewusst **nicht** über Googles CDN: sonst ginge bei
+jedem Seitenaufruf die IP-Adresse der Besucher an Google in die USA — in
+Deutschland ein bekanntes Abmahnrisiko und ein Punkt, der sonst in die
+Datenschutzerklärung müsste.
+
+Enthalten sind nur die tatsächlich benutzten Schnitte (Instrument Serif 400,
+Inter 400/500) in den Subsets `latin` und `latin-ext`, zusammen rund 162 KB.
+Inter kommt als Variable Font, beide Gewichte teilen sich dieselbe Datei.
+Wer einen weiteren Schnitt braucht, muss ihn in `fonts/` und `fonts.css`
+ergänzen — ein `font-weight`, das dort fehlt, wird vom Browser nur synthetisch
+nachgebildet.
 
 ## Gestaltung
 
@@ -77,5 +95,9 @@ braucht rund eine Minute.
 
 - **Kontaktformular:** öffnet aktuell das Mail-Programm (`mailto:`) mit vorausgefüllter Nachricht.
   Für serverseitigen Versand das `submit`-Handling in `main.js` gegen einen Form-Endpoint tauschen.
-- **Impressum/Datenschutz:** Links in der Fußzeile ergänzen.
+- **E-Mail-Adresse:** Überall steht `info@hermibricks.de`. Sobald das Postfach
+  `info@regiobrixx.de` existiert, in `index.html`, `impressum.html`,
+  `datenschutz.html` und `main.js` tauschen.
+- **Rechtstexte:** Impressum und Datenschutzerklärung sind Entwürfe nach dem
+  tatsächlichen Verhalten der Seite, aber juristisch nicht geprüft.
 - **Bilder:** für Produktion zusätzlich als WebP/AVIF ausliefern.

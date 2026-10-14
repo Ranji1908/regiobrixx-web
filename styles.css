@@ -342,6 +342,45 @@ h3{
 .form-hint.is-error{color:var(--ink)}
 .form-hint a{color:inherit}
 
+/* ============ RECHTSSEITEN ============ */
+.legal{padding-block:clamp(56px,7vw,104px) clamp(72px,9vw,128px)}
+.legal .wrap{max-width:720px}
+.legal h1{
+  font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.06;
+  font-size:clamp(2.4rem,5vw,3.4rem);margin:0;
+}
+.legal-intro{
+  margin-top:clamp(24px,3vw,32px);font-size:1.06rem;color:var(--ink-soft);max-width:54ch;
+}
+.legal section{
+  margin-top:clamp(40px,5vw,64px);padding-top:clamp(28px,3.5vw,38px);
+  border-top:1px solid var(--rule);
+}
+.legal h2{
+  font-family:var(--sans);font-size:1rem;font-weight:500;letter-spacing:-.005em;
+  line-height:1.45;margin:0 0 16px;
+}
+.legal p{color:var(--ink-soft);font-size:.98rem;max-width:62ch}
+.legal p+p{margin-top:16px}
+.legal a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:var(--rule);transition:text-decoration-color .2s}
+.legal a:hover{text-decoration-color:var(--ink)}
+.legal .address{color:var(--ink);line-height:1.8}
+
+.legal-list{margin:0;display:grid;gap:12px}
+.legal-list div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;align-items:baseline}
+.legal-list dt{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.legal-list dd{margin:0;font-size:.98rem}
+
+.legal-bullets{margin:0;padding-left:20px;color:var(--ink-soft);font-size:.98rem;max-width:62ch}
+.legal-bullets li{margin-top:8px}
+.legal-bullets li:first-child{margin-top:0}
+
+/* Die Rechtsseiten tragen keinen Burger, also bleibt ihre Navigation
+   auf jeder Breite sichtbar statt ins Overlay zu klappen. */
+.nav-legal a[aria-current="page"]{color:var(--ink)}
+.nav-legal a[aria-current="page"]::after{transform:scaleX(1);background:var(--rule)}
+
 /* ============ FOOTER ============ */
 .site-footer{border-top:1px solid var(--rule);padding-block:clamp(48px,6vw,72px)}
 .footer-inner{display:flex;flex-wrap:wrap;align-items:center;gap:28px;justify-content:space-between}
@@ -352,6 +391,8 @@ h3{
   width:100%;padding-top:28px;border-top:1px solid var(--rule-soft);
   font-size:.78rem;color:var(--ink-faint);display:flex;flex-wrap:wrap;gap:6px 24px;
 }
+.footer-legal a{color:inherit;text-decoration:none}
+.footer-legal a:hover{color:var(--ink)}
 
 /* ============ REVEAL ============ */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.7,.3,1)}
@@ -390,6 +431,18 @@ h3{
     max-height:calc(100dvh - 78px);overflow-y:auto;
   }
   .nav.open{transform:none}
+  /* Marke und drei Links passen nebeneinander nicht aufs Handy,
+     also bekommt die Navigation eine eigene Zeile. */
+  .site-header:has(.nav-legal) .header-inner{
+    flex-wrap:wrap;min-height:0;padding-block:16px;gap:12px 20px;
+  }
+  .nav-legal{
+    position:static;transform:none;flex-direction:row;flex-wrap:wrap;
+    width:100%;margin-left:0;gap:20px;
+    background:none;border:0;padding:0;max-height:none;overflow:visible;
+  }
+  .nav-legal a{padding:2px 0;font-size:.88rem;border-bottom:0}
+  .nav-legal a::after{display:none}
   .nav a{padding:18px 0;font-size:1.05rem;border-bottom:1px solid var(--rule-soft)}
   .nav a::after{display:none}
   .burger{display:flex}
