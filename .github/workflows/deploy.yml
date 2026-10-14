@@ -39,14 +39,11 @@ jobs:
           echo "Veröffentlicht werden:"
           find _site -type f | sort
 
+      # Setzt voraus, dass unter Settings -> Pages die Source einmalig auf
+      # "GitHub Actions" gestellt wurde. Das Workflow-Token darf eine
+      # Pages-Site deployen, aber nicht selbst anlegen.
       - name: Pages konfigurieren
         uses: actions/configure-pages@v5
-        with:
-          # Aktiviert Pages beim ersten Lauf selbst, falls in den Repo-
-          # Settings noch nichts eingestellt ist. Schlaegt das fehl, muss
-          # unter Settings -> Pages die Source einmalig auf "GitHub Actions"
-          # gestellt werden.
-          enablement: true
 
       - name: Artefakt hochladen
         uses: actions/upload-pages-artifact@v3
