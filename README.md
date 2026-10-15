@@ -72,7 +72,11 @@ Die Seite läuft auf **GitHub Pages**. Jeder Push auf `main` stößt den Workflo
 
 1. **Repo-Settings → Pages → Source** auf `GitHub Actions` stellen.
    Ohne diesen Schritt läuft der Workflow zwar, veröffentlicht aber nichts.
-2. **`CNAME`** liegt im Wurzelverzeichnis und enthält `regiobrixx.de`.
+2. **`CNAME`** liegt im Wurzelverzeichnis und enthält `www.regiobrixx.de`.
+   Diese Schreibweise muss mit dem Feld *Custom domain* in den Pages-Settings
+   übereinstimmen — die Datei gewinnt, das Formular wird beim Deploy
+   überschrieben. Die Variante ohne `www` leitet GitHub automatisch hierher
+   um.
    Diese Datei muss bleiben: Bei Actions-basiertem Deploy reicht das Eintragen
    der Domain im Pages-Formular **nicht** — ohne die Datei im Repo ist die
    Domain nach dem nächsten Deploy wieder weg.

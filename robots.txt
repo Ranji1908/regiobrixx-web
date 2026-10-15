@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://regiobrixx.de/sitemap.xml
+Sitemap: https://www.regiobrixx.de/sitemap.xml
