@@ -380,7 +380,8 @@
           </select>
         </label>
         <label>Ihr Wahrzeichen oder Ihre Idee
-          <textarea name="idee" rows="3" placeholder="Welches Motiv steht für Ihre Region?"></textarea>
+          <textarea name="idee" rows="3" maxlength="1000" placeholder="Welches Motiv steht für Ihre Region?"></textarea>
+          <span class="field-count" id="idee-count" aria-live="polite" hidden></span>
         </label>
         <button class="btn" type="submit">Anfrage schreiben</button>
         <p class="form-hint" id="form-hint">Öffnet Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht an <a href="mailto:info@regiobrixx.de">info@regiobrixx.de</a>.</p>

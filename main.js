@@ -111,6 +111,29 @@
   var hint = document.getElementById('form-hint');
   var hintDefault = hint ? hint.innerHTML : '';
 
+  /* ---- Laengenbegrenzung des Freitexts ----
+     Die Anfrage wird als mailto:-URL uebergeben. Jenseits von rund 2000
+     Zeichen kuerzen manche Mailprogramme und Windows die URL stillschweigend,
+     der Text waere dann unvollstaendig. Das maxlength am Feld deckelt das;
+     der Zaehler erscheint erst kurz davor, um nicht zu stoeren. */
+  var idee = form && form.querySelector('textarea[name="idee"]');
+  var ideeCount = document.getElementById('idee-count');
+
+  if (idee && ideeCount) {
+    var max = parseInt(idee.getAttribute('maxlength'), 10) || 1000;
+    var showFrom = Math.round(max * 0.7);
+
+    idee.addEventListener('input', function () {
+      var used = idee.value.length;
+      if (used < showFrom) {
+        ideeCount.hidden = true;
+        return;
+      }
+      ideeCount.hidden = false;
+      ideeCount.textContent = (max - used) + ' Zeichen übrig';
+    });
+  }
+
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();

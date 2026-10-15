@@ -338,6 +338,10 @@ h3{
   background-position:calc(100% - 9px) 19px,calc(100% - 4px) 19px;background-size:5px 5px;background-repeat:no-repeat}
 .form textarea{resize:vertical;min-height:64px;line-height:1.7}
 .form .btn{justify-self:start;margin-top:6px}
+.field-count{
+  font-size:.72rem;letter-spacing:normal;text-transform:none;
+  color:var(--ink-faint);text-align:right;
+}
 .form-hint{font-size:.82rem;color:var(--ink-faint);line-height:1.6}
 .form-hint.is-error{color:var(--ink)}
 .form-hint a{color:inherit}
